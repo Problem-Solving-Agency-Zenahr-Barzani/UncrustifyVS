@@ -1,0 +1,66 @@
+Version 1.1.4
+- Fixed: filtered document types are not longer formatted when saving or loading.
+
+Version 1.1.3
+- Added support for event-driven formatting (see 'Options').
+- Added support for multiple profiles.
+
+Version 1.1.2
+- Added support for conditional fragment formatting (see 'Options').
+- Fixed: support for Microsoft Visual Studio 2012.
+
+Version 1.1.1
+- Fixed: all text markers (breakpoints, bookmarks, etc.) will be restored after formatting.
+
+Version 1.1.0
+- Added support for Microsoft Visual Studio 2015.
+
+Version 1.0.9
+- Fixed: breakpoints no longer disappear after formatting.
+
+Version 1.0.8
+- Added support for Microsoft Visual Studio 2013.
+
+Version 1.0.7
+- Added support for formatting the current selection only.
+
+There's a catch to formatting the selection only: Uncrustify expects the code that is passed in to
+be in full context, i.e. if you select some code like this
+
+class A
+{
+public:
+    void a();
+};
+
+and run it through Uncrustify, it would probably be formatted as expected. No problems here.
+
+But if you pass in something like this
+
+public:
+    void a();
+    
+essentially omitting the class context, Uncrustify will most likely produce some strange results.
+
+I thought about passing in the entire document, then the selection only and then look at the
+difference and replace it accordingly, but since Uncrustify can essentially do the same thing
+a macro expansion can do (with all kinds of nasty replacements), it would be a nightmare to do this
+correctly for every possible case without deeper analysis of the code that is being transformed ...
+and if you get it wrong it might actually break some code!
+
+Version 1.0.6
+- Added new command line command: %LANGUAGE%. Use '-l %LANGUAGE%' to properly indent files with Uncrustify.
+
+Version 1.0.5
+- Fixed the exception, which was thrown when the add-in was installed because VS was trying to open
+the 'Getting Started' file (which failed, because it needs a URL instead of a textfile for some reason...)
+
+Version 1.0.4
+- Submenu added under Tools
+- C# file filter template
+
+Version 1.0.2
+- Default shortcut changed to Ctrl+K, Ctrl+O (non-conflicting with VS)
+
+Version 1.0
+- Initial release

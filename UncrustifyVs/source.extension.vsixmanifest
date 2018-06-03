@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="55bbc94c-c071-4855-8348-9e93e4992309" Version="1.1.4" Language="en-US" Publisher="Gokhan Ozdogan" />
+    <DisplayName>UncrustifyVS</DisplayName>
+    <Description xml:space="preserve">Uncrustify for Visual Studio.</Description>
+    <License>LICENSE.txt</License>
+    <ReleaseNotes>RELEASE_NOTES.txt</ReleaseNotes>
+    <Icon>Resources\Package.ico</Icon>
+    <PreviewImage>Package.png</PreviewImage>
+    <Tags>Uncrustify</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[11.0,]" />
+    <InstallationTarget Version="[11.0,]" Id="Microsoft.VisualStudio.Pro" />
+    <InstallationTarget Version="[11.0,]" Id="Microsoft.VisualStudio.IntegratedShell" />
+    <InstallationTarget Version="[11.0,]" Id="Microsoft.VisualStudio.Enterprise" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,]" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[11.0,]" />
+  </Prerequisites>
+</PackageManifest>
